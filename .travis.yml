@@ -1,6 +1,9 @@
 language: node_js
 node_js:
-  - "7"
-  - "6"
+- '7'
+- '6'
 script: npm run coverage
-after_success: 'npm run coveralls'
+after_success: npm run coveralls
+deploy:
+  api_key:
+    secure: Y9/qqkDjjnVeXFMVF1OQVNs217aWvevTAuF/3fVGqMLa30/SrPmtd6rwiPiEeyv0KS3aGDkJoh1NMww5QkYBitrn02cgSxlQK8v0jeFTaweC3mQBtdbw3/p7lqlJEFaEKI6DZNp9DY7yYMVCGZS3BSqlXG+t2vIxEHFLUbHas5gFqNxW04LWfAQDKWwklvpUMBANhq0arw10t40ID7qiVsodVQwJiHqLmc7qFT4ixr7rSsHXzM7rs8Bxfa1lU8cbVqXexCDGHbjiFULrJPF/EEkc69+aCuTRLTf4giNtapFK1G1nBmQ/b0W0ws3ME/nPHe//skVm7f3j0k1wel+TfCv7a5Yd0oIzDjzxvpcIpotg93sP4dH4I6IAHHrL61iwpKWfkSrad7reyxSRPVyuLqjU0qOWUwSh45EeyPFZOQLfGAtLBvm9gk6Pbli09JGii0eK5Pgc0AVuMS+Mv0kv8i8OH11VM+cRExBF6OvKbIEwZySJHbYR99iC2Y0rgj/vAZpzGB33YfY3hRGkplW2DHHcEI8Ns1jPuCkW0RDMKmXDtBFaW7RuX0yoPKc6mq0hHcQDWut1grGTqSsjvkls0UDCMPuVfUNMI7DY86Zm3+mqMuQuRj3Qy1aXu2LjnMIqraPKnmFjhR07CmxsS8DBgwskV0DinrO8/Is2RnT81x8=
