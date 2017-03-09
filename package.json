@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "SET NODE_ENV=development && nodemon index.js",
-    "test": "mocha --timeout=10000",
+    "start": "node index.js",
+    "test": "./node_modules/mocha/bin/mocha",
     "coverage": "node node_modules/.bin/istanbul cover _mocha",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
