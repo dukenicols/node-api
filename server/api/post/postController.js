@@ -8,12 +8,14 @@ exports.params = (req, res, next, id) => {
     .exec()
     .then((post) => {
       if (!post) {
+        res.status(422);
         next(new Error('No post with that id'));
       } else {
         req.post = post;
         next();
       }
     }, (err) => {
+      res.status(422);
       next(err);
     });
 };
@@ -24,8 +26,6 @@ exports.get = (req, res, next) => {
     .exec()
     .then((posts) => {
       res.json(posts);
-    }, (err) => {
-      next(err);
     });
 };
 

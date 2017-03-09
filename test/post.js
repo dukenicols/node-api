@@ -155,5 +155,25 @@ describe('Post', () => {
          });
       });
     });
+    it('should trigger an error on DELETE a post by invalid id, but valid ObjectId', (done) => {
+      chai.request(server)
+        .delete('/api/post/41224d776a326fb40f000001') // invalid id, validObjectId
+        .end((err, res) => {
+          res.should.have.status(422);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('No post with that id');
+          done();
+        })
+    });
+    it('should trigger cast to objectid error on DELETE a post by invalid id', (done) => {
+      chai.request(server)
+        .delete('/api/post/24242424') // invalid id, validObjectId
+        .end((err, res) => {
+          res.should.have.status(422);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('Cast to ObjectId failed for value \"24242424\" at path \"_id\" for model \"post\"');
+          done();
+        })
+    });
   });
 });

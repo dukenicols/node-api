@@ -24,9 +24,13 @@ app.use((err, req, res, next) => {
     res.status(401).send('Invalid token');
     return;
   }
-
   logger.error(err.stack);
-  res.send(err);
+  // Mongoose error
+  if(err.hasOwnProperty('errors')) {
+    return res.send(err);
+  }
+  // Param error
+  res.send({ status: res.status, message: err.message });
 });
 
 // export the app for testing
